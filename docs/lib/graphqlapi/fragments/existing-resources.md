@@ -1,26 +1,11 @@
-Existing AWS AppSync resources can be used with the Amplify Libraries by referencing your AWS AppSync **endpoint** and configuring authorization  in your `amplifyconfiguration.json` file.
+Using an existing AWS AppSync API is not supported.  Instead, add a new API to your Amplify project:
 
-```json
-{
-    "api": {
-        "plugins": {
-            "awsAPIPlugin": {
-                "[API NAME]": {
-                    "endpointType": "GraphQL",
-                    "endpoint": "[APPSYNC ENDPOINT]",
-                    "region": "[REGION]",
-                    "authorizationType": "[AUTHORIZATION TYPE]",
-                    ...
-                }
-            }
-        }
-    }
-}
+```bash
+amplify add api
 ```
 
-- **API NAME**: Friendly name for the API (e.g., *api*)
-  - **endpoint**: The HTTPS endpoint of the AWS AppSync API (e.g. *https://aaaaaaaaaaaaaaaaaaaaaaaaaa.appsync-api.us-east-1.amazonaws.com/graphql*)
-  - **region**:  AWS Region where the resources are provisioned (e.g. *us-east-1*)
-  - **authorizationType**: Authorization mode for accessing the API. This can be one of: `AMAZON_COGNITO_USER_POOLS`, `AWS_IAM`, `OPENID_CONNECT`, or `API_KEY`. Each mode requires additional configuration parameters. See [Configure authorization modes](~/lib/graphqlapi/authz.md) for  details.
+Existing data will need to be migrated manually from the existing AppSync API resource to the new one.  If your existing AppSync API is backed by a DynamoDB data source, you can change your new API's Data Source to point to the existing DynamoDB table.  Before doing this though, ensure that your schema for both the new API and the existing API are identical, and that conflict detection is configured the same way for both APIs, otherwise the new API will return schema validation errors.
+
+Visit the [AppSync console](https://console.aws.amazon.com/appsync/), select your new API, select "Data Sources", and then for each table, select the DynamoDB table resource used by the existing API.
 
 Note that before you can add an AWS resource to your application, the application must have the Amplify libraries installed. If you need to perform this step, see [Install Amplify Libraries](~/lib/project-setup/create-application.md#n2-install-amplify-libraries). 
