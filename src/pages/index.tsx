@@ -2,8 +2,10 @@ import {Grid} from "theme-ui";
 
 import Hero from "../components/Hero";
 import LandingHeroCTA from "../components/LandingHeroCTA";
-import Container from "../components/Container";
+import {Container} from "../components/Container";
 import {Card, CardDetail, CardGraphic} from "../components/Card";
+import FeaturesGrid from "../components/FeaturesGrid";
+import LinkBanner from "../components/LinkBanner";
 
 const Page = () => {
   return (
@@ -24,7 +26,7 @@ const Page = () => {
             developers
           </h4>
         </div>
-        <Grid columns={4}>
+        <Grid columns={[1, null, null, 4]}>
           <Card href="/lib/q/platform/js">
             <CardGraphic src="/lib.png" />
             <CardDetail>
@@ -62,134 +64,8 @@ const Page = () => {
         </Grid>
       </Container>
 
-      <Container backgroundColor="color-off-white">
-        <h4 className="text-align-center">Explore Features</h4>
-        <Grid gap={2} columns={3} className="margin-top-lg">
-          <Card href="/lib/auth/getting-started" className="border-radius">
-            <CardGraphic src="/features/auth.svg" />
-            <CardDetail>
-              <h4 slot="heading">Authentication</h4>
-              <p slot="description">
-                Enable sign-in, sign-up and sign-out within minutes with
-                pre-built UI components and powerful authentication APIs
-              </p>
-            </CardDetail>
-          </Card>
-          <Card href="/lib/storage/getting-started" className="border-radius">
-            <CardGraphic src="/features/storage.svg" />
-            <CardDetail>
-              <h4 slot="heading">Storage</h4>
-              <p slot="description">
-                A simple mechanism for managing user content in public,
-                protected or private storage
-              </p>
-            </CardDetail>
-          </Card>
-          <Card
-            href="/lib/graphqlapi/getting-started"
-            className="border-radius"
-          >
-            <CardGraphic src="/features/api.svg" />
-            <CardDetail>
-              <h4 slot="heading">GraphQL API</h4>
-              <p slot="description">
-                Easy and secure solution to access your backend data with
-                support for real-time updates using GraphQL
-              </p>{" "}
-            </CardDetail>
-          </Card>
-          <Card href="/lib/datastore/getting-started" className="border-radius">
-            <CardGraphic src="/features/datastore.svg" />
-            <CardDetail>
-              <h4 slot="heading">DataStore</h4>
-              <p slot="description">
-                Seamlessly synchronize and persist online & offline data to the
-                cloud as well as across devices
-              </p>
-            </CardDetail>
-          </Card>
-          <Card href="/lib/restapi/getting-started" className="border-radius">
-            <CardGraphic src="/features/api.svg" />
-            <CardDetail>
-              <h4 slot="heading">REST API</h4>
-              <p slot="description">
-                A straightforward and secure solution for making HTTP requests
-                using REST APIs
-              </p>
-            </CardDetail>
-          </Card>
-          <Card href="/lib/analytics/getting-started" className="border-radius">
-            <CardGraphic src="/features/analytics.svg" />
-            <CardDetail>
-              <h4 slot="heading">Analytics</h4>
-              <p slot="description">
-                Make informed decisions with drop-in analytics to track user
-                sessions, custom user attributes and in-app metrics
-              </p>
-            </CardDetail>
-          </Card>
-          <Card
-            href="/lib/push-notifications/getting-started"
-            className="border-radius"
-          >
-            <CardGraphic src="/features/push-notifications.svg" />
-            <CardDetail>
-              <h4 slot="heading">Push Notifications</h4>
-              <p slot="description">
-                Drive customer engagement using push notifications with campaign
-                analytics and targeting
-              </p>
-            </CardDetail>
-          </Card>
-          <Card href="/lib/xr/getting-started" className="border-radius">
-            <CardGraphic src="/features/xr.svg" />
-            <CardDetail>
-              <h4 slot="heading">XR</h4>
-              <p slot="description">
-                Engage your customers in a different dimension with augmented
-                reality (AR) and virtual reality (VR) content within your app
-              </p>
-            </CardDetail>
-          </Card>
-          <Card href="/lib/pubsub/getting-started" className="border-radius">
-            <CardGraphic src="/features/pubsub.svg" />
-            <CardDetail>
-              <h4 slot="heading">PubSub</h4>
-              <p slot="description">
-                Provide best-in-class real-time experiences by connecting your
-                application with a message-oriented middleware in the cloud
-              </p>
-            </CardDetail>
-          </Card>
-          <Card
-            href="/lib/interactions/getting-started"
-            className="border-radius"
-          >
-            <CardGraphic src="/features/interactions.svg" />
-            <CardDetail>
-              <h4 slot="heading">Interactions</h4>
-              <p slot="description">
-                Automate customer workflows by enlisting the help of
-                conversational chatbots powered by deep learning technologies
-              </p>
-            </CardDetail>
-          </Card>
-          <Card
-            href="/lib/predictions/getting-started"
-            className="border-radius"
-          >
-            <CardGraphic src="/features/predictions.svg" />
-            <CardDetail>
-              <h4 slot="heading">AI / ML Predictions</h4>
-              <p slot="description">
-                Design delightful experiences with the power of AI and ML
-                functionality such as computer vision, translation,
-                transcription and more
-              </p>
-            </CardDetail>
-          </Card>
-        </Grid>
-      </Container>
+      <FeaturesGrid />
+      <LinkBanner />
     </>
   );
 };
